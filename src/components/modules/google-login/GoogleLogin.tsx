@@ -32,9 +32,10 @@ const GoogleLoginComponent = () => {
   return (
     <GoogleLogin
       text="continue_with"
+      shape="pill"
       onSuccess={handleGoogleSuccess}
       onError={handleGoogleError}
-    ></GoogleLogin>
+    />
   );
 };
 
