@@ -1,5 +1,13 @@
-const StudentLayout = () => {
-  return <div>StudentLayout</div>;
+import RoleGuard from "@/components/auth/role-guard";
+import DashboardShell from "@/components/dashboard/dashboard-shell";
+import { ReactNode } from "react";
+
+const StudentLayout = ({ children }: { children: ReactNode }) => {
+  return (
+    <RoleGuard roles={["STUDENT"]}>
+      <DashboardShell role="STUDENT">{children}</DashboardShell>
+    </RoleGuard>
+  );
 };
 
 export default StudentLayout;
