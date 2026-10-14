@@ -1,16 +1,14 @@
 export interface IRegistrationPayload {
-    name: string
-    email: string
-    password: string
-    patient: {
-        contactNumber?: string
-    }
+  name: string;
+  email: string;
+  password: string;
+  role: "INSTRUCTOR" | "STUDENT";
 }
 export interface ILoginPayload {
-    email: string
-    password: string
+  email: string;
+  password: string;
 }
 export interface IVerifyAccountPayload {
-    email: string
-    otp: string
+  email: string;
+  otp: string;
 }

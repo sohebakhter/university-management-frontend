@@ -1,5 +1,5 @@
 import Logo from "@/assets/svg/Logo";
-// import RegisterForm from "@/components/form/register-form";
+import RegisterForm from "@/components/form/register-form";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +14,9 @@ export default function RegisterPage() {
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <div className="w-full max-w-xs">{/* <RegisterForm /> */}</div>
+          <div className="w-full max-w-xs">
+            <RegisterForm />
+          </div>
         </div>
       </div>
       <div className="relative hidden bg-muted lg:block">
