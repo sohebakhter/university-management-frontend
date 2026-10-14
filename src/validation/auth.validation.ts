@@ -33,6 +33,10 @@ export const RegisterZodSchema = z
     path: ["confirmPassword"],
   });
 
+export const ForgotPasswordZodSchema = z.object({
+  email: z.email("Invalid email address"),
+});
+
 export const ResetPasswordZodSchema = z
   .object({
     email: z.email("Invalid email address"),

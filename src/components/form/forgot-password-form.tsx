@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/field";
 import { Spinner } from "@/components/ui/spinner";
 import { useForgotPassword } from "@/hooks";
+import { ForgotPasswordZodSchema } from "@/validation";
 
 const ForgotPasswordForm = () => {
   const router = useRouter();
@@ -26,6 +27,7 @@ const ForgotPasswordForm = () => {
     defaultValues: {
       email: "",
     },
+    validators: { onSubmit: ForgotPasswordZodSchema },
     onSubmit: ({ value }) => {
       forgotPassword(
         { email: value.email.trim() },
