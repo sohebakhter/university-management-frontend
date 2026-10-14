@@ -128,6 +128,15 @@ const LoginForm = () => {
             }}
           </form.Field>
 
+          <div className="flex justify-end">
+            <Link
+              href="/forgot-password"
+              className="text-sm font-medium text-blue-600 underline-offset-4 hover:text-blue-700 hover:underline"
+            >
+              Forgot password?
+            </Link>
+          </div>
+
           <Button disabled={loginPending} type="submit">
             {loginPending ? <Spinner /> : "Submit"}
           </Button>

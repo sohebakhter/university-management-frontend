@@ -32,3 +32,18 @@ export const RegisterZodSchema = z
     message: "Password not matched",
     path: ["confirmPassword"],
   });
+
+export const ResetPasswordZodSchema = z
+  .object({
+    email: z.email("Invalid email address"),
+    otp: z
+      .string()
+      .length(6, "OTP must be exactly 6 digits")
+      .regex(/^\d{6}$/, "OTP must contain only digits"),
+    newPassword: passwordSchema,
+    confirmPassword: passwordSchema,
+  })
+  .refine((value) => value.newPassword === value.confirmPassword, {
+    message: "Password not matched",
+    path: ["confirmPassword"],
+  });
