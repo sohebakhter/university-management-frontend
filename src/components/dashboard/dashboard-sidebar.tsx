@@ -45,10 +45,7 @@ export function DashboardSidebar({ role }: { role: UserRole }) {
               <SidebarMenu>
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton
-                      // render={<Link href={`${item.url}`} />}
-                      isActive={pathname === item.url}
-                    >
+                    <SidebarMenuButton asChild isActive={pathname === item.url}>
                       <Link href={`${item.url}`}>{item.title}</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
