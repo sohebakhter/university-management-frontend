@@ -9,12 +9,12 @@ import {
   FieldLabel,
   FieldSeparator,
 } from "../ui/field";
-// import { loginSchema } from "@/validation";
+import { loginSchema } from "@/validation";
 import { useState } from "react";
 import { Eye, EyeClosed } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Spinner } from "../ui/spinner";
-// import GoogleLoginComponent from "../modules/google-login/GoogleLogin";
+import GoogleLoginComponent from "../modules/google-login/GoogleLogin";
 import Link from "next/link";
 import { toast } from "sonner";
 import { useLogin } from "@/hooks";
@@ -28,9 +28,9 @@ const LoginForm = () => {
       email: "mrdjworker@gmail.com",
       password: "aA@123456",
     },
-    // validators: {
-    //   onSubmit: loginSchema,
-    // },
+    validators: {
+      onSubmit: loginSchema,
+    },
     onSubmit: ({ value }) => {
       const loginData = {
         email: value.email,
@@ -134,7 +134,7 @@ const LoginForm = () => {
         </FieldGroup>
       </form>
       <FieldSeparator>Or</FieldSeparator>
-      {/* <GoogleLoginComponent /> */}
+      <GoogleLoginComponent />
 
       <div className="text-center text-sm text-muted-foreground">
         Don't have any account?
