@@ -10,6 +10,7 @@ import { toast } from "sonner";
 const Header = () => {
   const routes = [
     { name: "Home", path: "/" },
+    { name: "Departments", path: "/departments" },
     { name: "About Us", path: "/about-us" },
   ];
 
