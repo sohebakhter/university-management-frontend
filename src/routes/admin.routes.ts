@@ -23,15 +23,11 @@ export const adminRoutes = [
     ],
   },
   {
-    title: "App Settings",
+    title: "Course Management",
     items: [
       {
-        title: "Routing",
-        url: "#",
-      },
-      {
-        title: "Data Fetching",
-        url: "#",
+        title: "Course",
+        url: `${prefix}/course`,
       },
     ],
   },
