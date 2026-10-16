@@ -1,5 +1,5 @@
-import DepartmentTable from "@/components/modules/departments/department-table";
 import DepartmentTableLoading from "@/components/modules/departments/department-table-loading";
+import PublicDepartmentTable from "@/components/modules/departments/public-department-table";
 import { Suspense } from "react";
 
 const PublicDepartmentPage = () => {
@@ -10,7 +10,7 @@ const PublicDepartmentPage = () => {
         <p>here is the departments of all course you can choose.</p>
       </div>
       <Suspense fallback={<DepartmentTableLoading />}>
-        <DepartmentTable />
+        <PublicDepartmentTable />
       </Suspense>
     </div>
   );

@@ -14,6 +14,15 @@ export const adminRoutes = [
     ],
   },
   {
+    title: "Department Management",
+    items: [
+      {
+        title: "Departments",
+        url: `${prefix}/department`,
+      },
+    ],
+  },
+  {
     title: "App Settings",
     items: [
       {

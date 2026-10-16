@@ -10,6 +10,7 @@ import {
 import { useSuspenseGetAllDepartments } from "@/hooks";
 import { Department } from "@/types";
 import { format } from "date-fns";
+import DepartmentActions from "./department-actions";
 
 const DepartmentTable = () => {
   const { data } = useSuspenseGetAllDepartments();
@@ -25,6 +26,7 @@ const DepartmentTable = () => {
               <TableHead>Code</TableHead>
               <TableHead>Name</TableHead>
               <TableHead>Published</TableHead>
+              <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -33,6 +35,10 @@ const DepartmentTable = () => {
                 <TableCell>{dept.code}</TableCell>
                 <TableCell>{dept.name}</TableCell>
                 <TableCell>{format(new Date(dept.createdAt), "PPP")}</TableCell>
+
+                <TableCell className="text-right">
+                  <DepartmentActions department={dept} />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
