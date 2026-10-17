@@ -40,4 +40,13 @@ export const adminRoutes = [
       },
     ],
   },
+  {
+    title: "Section Management",
+    items: [
+      {
+        title: "Section",
+        url: `${prefix}/section`,
+      },
+    ],
+  },
 ];
