@@ -14,3 +14,17 @@ export interface Instructor {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface Student {
+  id: string;
+  name: string;
+  email: string;
+  userId: string;
+  departmentId: string | null;
+  programName: string | null;
+  admissionDate: string;
+  isDeleted: boolean;
+  deletedAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+}

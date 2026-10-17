@@ -4,3 +4,4 @@ export * from "./course.api";
 export * from "./semester.api";
 export * from "./user.api";
 export * from "./section.api";
+export * from "./registration.api";

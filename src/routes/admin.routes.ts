@@ -49,4 +49,13 @@ export const adminRoutes = [
       },
     ],
   },
+  {
+    title: "Registration Management",
+    items: [
+      {
+        title: "Registration",
+        url: `${prefix}/registration`,
+      },
+    ],
+  },
 ];
