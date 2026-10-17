@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/table";
 import { useSuspenseGetAllSections } from "@/hooks";
 import { Section } from "@/types";
-// import SectionActions from "./section-actions";
+import SectionActions from "./section-actions";
 
 const SectionTable = () => {
   const { data } = useSuspenseGetAllSections();
@@ -43,7 +43,7 @@ const SectionTable = () => {
               <TableCell>{section._count.registrations}</TableCell>
 
               <TableCell className="text-right">
-                {/* <SectionActions section={section} /> */}
+                <SectionActions section={section} />
               </TableCell>
             </TableRow>
           ))}

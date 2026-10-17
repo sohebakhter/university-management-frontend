@@ -1,4 +1,10 @@
-import { createSection, getAllSections } from "@/api";
+import {
+  createSection,
+  deleteSection,
+  getAllSections,
+  updateSection,
+} from "@/api";
+import { IUpdateSectionPayload } from "@/types";
 import {
   useMutation,
   useQueryClient,
@@ -16,6 +22,29 @@ export const useCreateSection = () => {
 
   return useMutation({
     mutationFn: createSection,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["section"] });
+    },
+  });
+};
+
+export const useUpdateSection = (sectionId: string) => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (payload: IUpdateSectionPayload) =>
+      updateSection(sectionId, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["section"] });
+    },
+  });
+};
+
+export const useDeleteSection = (sectionId: string) => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: () => deleteSection(sectionId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["section"] });
     },

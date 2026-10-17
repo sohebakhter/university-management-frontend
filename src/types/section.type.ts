@@ -10,6 +10,14 @@ export interface ICreateSectionPayload {
   instructorId: string;
 }
 
+export interface IUpdateSectionPayload {
+  name?: string;
+  capacity?: number;
+  courseId?: string;
+  semesterId?: string;
+  instructorId?: string;
+}
+
 export interface Section {
   id: string;
   name: string;
