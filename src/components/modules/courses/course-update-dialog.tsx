@@ -23,9 +23,9 @@ const CourseUpdateDialog = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Update Department</DialogTitle>
+          <DialogTitle>Update Course</DialogTitle>
           <DialogDescription>
-            This Department will be visible to students
+            This Course will be visible to students
           </DialogDescription>
         </DialogHeader>
 

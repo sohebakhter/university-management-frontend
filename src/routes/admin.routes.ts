@@ -31,4 +31,13 @@ export const adminRoutes = [
       },
     ],
   },
+  {
+    title: "Semester Management",
+    items: [
+      {
+        title: "Semester",
+        url: `${prefix}/semester`,
+      },
+    ],
+  },
 ];

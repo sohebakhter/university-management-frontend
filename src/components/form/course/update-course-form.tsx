@@ -19,7 +19,7 @@ interface Props {
   handleClose: () => void;
 }
 const UpdateCourseForm = ({ course, handleClose }: Props) => {
-  const { mutate: updateDepartment, isPending } = useUpdateCourse(course.id);
+  const { mutate: updateCourse, isPending } = useUpdateCourse(course.id);
   const { data } = useGetAllDepartments();
   const departments = data?.data ?? [];
 
@@ -41,7 +41,7 @@ const UpdateCourseForm = ({ course, handleClose }: Props) => {
         departmentId: value.departmentId,
       };
 
-      updateDepartment(courseData, {
+      updateCourse(courseData, {
         onSuccess: () => {
           toast.success("Department updated successfully");
           handleClose();
