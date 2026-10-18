@@ -17,3 +17,6 @@ export const updateSection = (
 export const deleteSection = (sectionId: string) => {
   return apiClient(`/section/${sectionId}`, { method: "DELETE" });
 };
+export const getSectionById = (sectionId: string) => {
+  return apiClient(`/section/${sectionId}`);
+};

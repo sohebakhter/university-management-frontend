@@ -1,28 +1,24 @@
 const prefix = "/student";
 export const studentRoutes = [
   {
-    title: "Section",
+    title: "Management",
     items: [
       {
         title: "Overview",
         url: `${prefix}`,
       },
       {
-        title: "My Section",
-        url: `${prefix}/my-section`,
+        title: "Available Section",
+        url: `${prefix}/section`,
       },
     ],
   },
   {
-    title: "App Settings",
+    title: "Registration Management",
     items: [
       {
-        title: "Routing",
-        url: "#",
-      },
-      {
-        title: "Data Fetching",
-        url: "#",
+        title: "Registration",
+        url: `${prefix}/registration`,
       },
     ],
   },

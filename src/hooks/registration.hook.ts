@@ -1,6 +1,8 @@
 import {
+  createRegistration,
   dropRegistration,
   getAllRegistrations,
+  getMyRegistrations,
   updateRegistrationStatus,
 } from "@/api";
 import { RegistrationStatus } from "@/types";
@@ -23,6 +25,12 @@ export const useSuspenseGetAllRegistrations = () => {
     queryFn: getAllRegistrations,
   });
 };
+export const useSuspenseGetMyRegistrations = () => {
+  return useSuspenseQuery({
+    queryKey: ["registration"],
+    queryFn: getMyRegistrations,
+  });
+};
 
 export const useDropRegistration = () => {
   const queryClient = useQueryClient();
@@ -30,7 +38,9 @@ export const useDropRegistration = () => {
   return useMutation({
     mutationFn: dropRegistration,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["registration"] });
+      queryClient.invalidateQueries({
+        queryKey: ["registration"],
+      });
     },
   });
 };
@@ -43,6 +53,18 @@ export const useUpdateRegistrationStatus = (registrationId: string) => {
       updateRegistrationStatus(registrationId, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["registration"] });
+    },
+  });
+};
+
+export const useCreateRegistration = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: createRegistration,
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["registration"],
+      });
     },
   });
 };

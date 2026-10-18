@@ -2,11 +2,13 @@ import {
   createSection,
   deleteSection,
   getAllSections,
+  getSectionById,
   updateSection,
 } from "@/api";
 import { IUpdateSectionPayload } from "@/types";
 import {
   useMutation,
+  useQuery,
   useQueryClient,
   useSuspenseQuery,
 } from "@tanstack/react-query";
@@ -48,5 +50,13 @@ export const useDeleteSection = (sectionId: string) => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["section"] });
     },
+  });
+};
+
+export const useGetSectionById = (sectionId: string) => {
+  return useQuery({
+    queryKey: ["section", sectionId],
+    queryFn: () => getSectionById(sectionId),
+    enabled: Boolean(sectionId),
   });
 };
