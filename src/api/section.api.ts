@@ -1,8 +1,12 @@
 import { apiClient } from "@/lib/apiClient";
-import { ICreateSectionPayload, IUpdateSectionPayload } from "@/types";
+import {
+  ICreateSectionPayload,
+  ISectionFilterParams,
+  IUpdateSectionPayload,
+} from "@/types";
 
-export const getAllSections = () => {
-  return apiClient("/section");
+export const getAllSections = (params: ISectionFilterParams) => {
+  return apiClient("/section", { params });
 };
 
 export const createSection = (payload: ICreateSectionPayload) => {

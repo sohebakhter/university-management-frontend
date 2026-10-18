@@ -9,12 +9,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useSuspenseGetAllSections } from "@/hooks";
-import { Section } from "@/types";
+import { ISectionFilterParams, Section } from "@/types";
 import { useRouter } from "next/navigation";
 
-const SectionTable = () => {
+const SectionTable = (params: ISectionFilterParams) => {
   const router = useRouter();
-  const { data } = useSuspenseGetAllSections();
+  const { data } = useSuspenseGetAllSections(params);
 
   const sections = data?.data || [];
 

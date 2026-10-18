@@ -36,3 +36,11 @@ export interface Section {
     registrations: number;
   };
 }
+
+export interface ISectionFilterParams {
+  semesterId?: string;
+  courseId?: string;
+  departmentId?: string;
+  instructorId?: string;
+  searchTerm?: string;
+}

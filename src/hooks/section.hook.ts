@@ -5,7 +5,7 @@ import {
   getSectionById,
   updateSection,
 } from "@/api";
-import { IUpdateSectionPayload } from "@/types";
+import { ISectionFilterParams, IUpdateSectionPayload } from "@/types";
 import {
   useMutation,
   useQuery,
@@ -13,10 +13,10 @@ import {
   useSuspenseQuery,
 } from "@tanstack/react-query";
 
-export const useSuspenseGetAllSections = () => {
+export const useSuspenseGetAllSections = (params: ISectionFilterParams) => {
   return useSuspenseQuery({
-    queryKey: ["section"],
-    queryFn: getAllSections,
+    queryKey: ["section", params],
+    queryFn: () => getAllSections(params),
   });
 };
 export const useCreateSection = () => {
