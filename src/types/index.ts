@@ -6,3 +6,4 @@ export * from "./course.type";
 export * from "./semester.type";
 export * from "./section.type";
 export * from "./registration.type";
+export * from "./payment.type";

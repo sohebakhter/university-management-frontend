@@ -17,8 +17,17 @@ export const studentRoutes = [
     title: "Registration Management",
     items: [
       {
-        title: "Registration",
-        url: `${prefix}/registration`,
+        title: "My Registration",
+        url: `${prefix}/my-registration`,
+      },
+    ],
+  },
+  {
+    title: "Payment Management",
+    items: [
+      {
+        title: "Payments History",
+        url: `${prefix}/payments`,
       },
     ],
   },

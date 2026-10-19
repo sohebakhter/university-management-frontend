@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {  useSuspenseGetMyRegistrations } from "@/hooks";
+import { useSuspenseGetMyRegistrations } from "@/hooks";
 import { Registration } from "@/types";
 import { format } from "date-fns";
 import MyRegistrationActions from "./my-registration-actions";
@@ -33,7 +33,6 @@ const MyRegistrationTable = () => {
           {registrations.length > 0 ? (
             registrations.map((registration) => (
               <TableRow key={registration.id}>
-
                 <TableCell>
                   <div className="font-medium">
                     {registration.section?.course?.code ?? "N/A"} /{" "}
@@ -53,7 +52,15 @@ const MyRegistrationTable = () => {
                   {registration.section?.instructor?.name ?? "N/A"}
                 </TableCell>
 
-                <TableCell>{registration.status}</TableCell>
+                <TableCell>
+                  {
+                    <span
+                      className={`${registration.status === "PENDING" ? "text-red-500" : registration.status === "ENROLLED" ? "text-green-500" : "text-yellow-500"}`}
+                    >
+                      {registration.status}
+                    </span>
+                  }
+                </TableCell>
 
                 <TableCell>
                   {registration.registeredAt &&
@@ -65,7 +72,6 @@ const MyRegistrationTable = () => {
                 <TableCell className="text-right">
                   <MyRegistrationActions registration={registration} />
                 </TableCell>
-
               </TableRow>
             ))
           ) : (
