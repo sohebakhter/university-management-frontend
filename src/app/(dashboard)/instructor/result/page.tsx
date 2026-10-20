@@ -1,5 +1,11 @@
-const page = () => {
-  return <div>page</div>;
+import ResultList from "@/components/modules/result/result-list";
+
+const InstructorResultPage = () => {
+  return (
+    <div className="p-4">
+      <ResultList />
+    </div>
+  );
 };
 
-export default page;
+export default InstructorResultPage;

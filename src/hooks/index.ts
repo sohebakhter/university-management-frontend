@@ -8,3 +8,4 @@ export * from "./registration.hook";
 export * from "./payment.hook";
 export * from "./attendance.hook";
 export * from "./exam.hook";
+export * from "./result.hook";
