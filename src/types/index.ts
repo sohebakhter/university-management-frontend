@@ -8,3 +8,4 @@ export * from "./section.type";
 export * from "./registration.type";
 export * from "./payment.type";
 export * from "./attendance.type";
+export * from "./exam.type";

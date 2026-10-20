@@ -13,5 +13,23 @@ export const instructorRoutes = [
       },
     ],
   },
+  {
+    title: "Examination Management",
+    items: [
+      {
+        title: "Examination",
+        url: `${prefix}/exam`,
+      },
+    ],
+  },
+  {
+    title: "Result Management",
+    items: [
+      {
+        title: "Results",
+        url: `${prefix}/result`,
+      },
+    ],
+  },
   
 ];
