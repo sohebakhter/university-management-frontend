@@ -13,7 +13,7 @@ import {
   useSuspenseQuery,
 } from "@tanstack/react-query";
 
-export const useSuspenseGetAllSections = (params: ISectionFilterParams) => {
+export const useSuspenseGetAllSections = (params: ISectionFilterParams = {}) => {
   return useSuspenseQuery({
     queryKey: ["section", params],
     queryFn: () => getAllSections(params),

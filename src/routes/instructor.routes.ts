@@ -1,29 +1,17 @@
 const prefix = "/instructor";
 export const instructorRoutes = [
   {
-    title: "Sctions",
+    title: "Management",
     items: [
       {
         title: "Overview",
         url: `${prefix}`,
       },
       {
-        title: "Assigned Section",
+        title: "My Sections",
         url: `${prefix}/section`,
       },
     ],
   },
-  {
-    title: "App Settings",
-    items: [
-      {
-        title: "Routing",
-        url: "#",
-      },
-      {
-        title: "Data Fetching",
-        url: "#",
-      },
-    ],
-  },
+  
 ];

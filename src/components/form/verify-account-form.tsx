@@ -30,6 +30,12 @@ const VerifyAccountForm = () => {
   const email = searchParams.get("email");
 
   useEffect(() => {
+    if (!email) {
+      router.replace("/");
+    }
+  }, [email, router]);
+
+  useEffect(() => {
     if (resendTimer <= 0) {
       return;
     }
@@ -41,7 +47,6 @@ const VerifyAccountForm = () => {
   }, [resendTimer]);
 
   if (!email) {
-    router.replace("/");
     return null;
   }
 
@@ -56,10 +61,11 @@ const VerifyAccountForm = () => {
     };
 
     verify(verifyData, {
-      onSuccess: () => {
+      onSuccess: (res) => {
         toast.success("Account Verified Successfully");
-
-        router.push("/");
+        if (res.success) {
+          router.push("/");
+        }
       },
       onError: (err) => {
         toast.error(err.message || "Something went wrong!");

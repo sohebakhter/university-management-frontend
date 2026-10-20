@@ -6,3 +6,4 @@ export * from "./user.api";
 export * from "./section.api";
 export * from "./registration.api";
 export * from "./payment.api";
+export * from "./attendance.api";
