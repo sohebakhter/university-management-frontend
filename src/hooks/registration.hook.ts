@@ -25,9 +25,15 @@ export const useSuspenseGetAllRegistrations = () => {
     queryFn: getAllRegistrations,
   });
 };
+export const useGetMyRegistrations = () => {
+  return useQuery({
+    queryKey: ["registration", "my"],
+    queryFn: getMyRegistrations,
+  });
+};
 export const useSuspenseGetMyRegistrations = () => {
   return useSuspenseQuery({
-    queryKey: ["registration"],
+    queryKey: ["registration", "my"],
     queryFn: getMyRegistrations,
   });
 };
