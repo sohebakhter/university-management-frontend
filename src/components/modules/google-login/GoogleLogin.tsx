@@ -54,12 +54,18 @@ const GoogleLoginComponent = () => {
     toast.error("Google OAuth Failed");
   };
   return (
-    <GoogleLogin
-      text="continue_with"
-      shape="pill"
-      onSuccess={handleGoogleSuccess}
-      onError={handleGoogleError}
-    />
+    <div className="w-full flex justify-center">
+      <GoogleLogin
+        text="continue_with"
+        shape="pill"
+        width="320"
+        containerProps={{
+          className: "w-full flex justify-center",
+        }}
+        onSuccess={handleGoogleSuccess}
+        onError={handleGoogleError}
+      />
+    </div>
   );
 };
 
