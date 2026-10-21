@@ -7,9 +7,22 @@ export const adminRoutes = [
         title: "Overview",
         url: `${prefix}`,
       },
+    ],
+  },
+  {
+    title: "User Management",
+    items: [
       {
-        title: "Instructor Approval",
-        url: `${prefix}/approve-instructor`,
+        title: "All Users",
+        url: `${prefix}/user`,
+      },
+      {
+        title: "Instructors",
+        url: `${prefix}/user/instructors`,
+      },
+      {
+        title: "Students",
+        url: `${prefix}/user/students`,
       },
     ],
   },
