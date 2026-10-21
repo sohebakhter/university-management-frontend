@@ -143,7 +143,19 @@ export const useUpdateUser = (userId: string) => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (formData: FormData) => updateUser(userId, formData),
-    onSuccess: () => {
+    onSuccess: (res: any) => {
+      if (res?.data) {
+        queryClient.setQueryData(["user"], (old: any) => {
+          if (!old) return old;
+          return {
+            ...old,
+            data: {
+              ...old.data,
+              ...res.data,
+            },
+          };
+        });
+      }
       queryClient.invalidateQueries({ queryKey: ["users"] });
       queryClient.invalidateQueries({ queryKey: ["user"] });
     },

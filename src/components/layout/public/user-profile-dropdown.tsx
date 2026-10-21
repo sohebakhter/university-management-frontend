@@ -16,6 +16,8 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { LogOut, User as UserIcon } from "lucide-react";
 
+import { useRouter } from "next/navigation";
+
 const profileRoutes: Record<UserRole, string> = {
   ADMIN: "/admin/profile",
   INSTRUCTOR: "/instructor/profile",
@@ -23,6 +25,7 @@ const profileRoutes: Record<UserRole, string> = {
 };
 
 const UserProfileDropdown = () => {
+  const router = useRouter();
   const { data } = useGetMe();
   const { mutate: logout } = useLogout();
   const queryClient = useQueryClient();
@@ -47,9 +50,8 @@ const UserProfileDropdown = () => {
       onSuccess: () => {
         toast.success("Logout Successful");
         queryClient.setQueryData(["user"], null);
-        queryClient.removeQueries({
-          queryKey: ["user"],
-        });
+        queryClient.clear();
+        router.push("/login");
       },
       onError: (err) => {
         toast.error(err.message || "Logout Failed");
