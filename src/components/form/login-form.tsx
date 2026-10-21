@@ -18,15 +18,26 @@ import GoogleLoginComponent from "../modules/google-login/GoogleLogin";
 import Link from "next/link";
 import { toast } from "sonner";
 import { useLogin } from "@/hooks";
+import { useQueryClient } from "@tanstack/react-query";
+import { getMe } from "@/api";
+import { UserRole } from "@/types";
+
+const dashboardRoute: Record<UserRole, string> = {
+  ADMIN: "/admin",
+  INSTRUCTOR: "/instructor",
+  STUDENT: "/student",
+};
+
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
+  const queryClient = useQueryClient();
   const { mutate: login, isPending: loginPending } = useLogin();
 
   const form = useForm({
     defaultValues: {
-      email: "mrdjworker@gmail.com",
-      password: "aA@123456",
+      email: "",
+      password: "",
     },
     validators: {
       onSubmit: loginSchema,
@@ -37,9 +48,23 @@ const LoginForm = () => {
         password: value.password,
       };
       login(loginData, {
-        onSuccess: () => {
-          router.push("/");
+        onSuccess: async () => {
           toast.success("Login Successful");
+          await queryClient.invalidateQueries({ queryKey: ["user"] });
+          try {
+            const userRes = await queryClient.fetchQuery({
+              queryKey: ["user"],
+              queryFn: getMe,
+            });
+            const role = userRes?.data?.role as UserRole | undefined;
+            if (role && dashboardRoute[role]) {
+              router.push(dashboardRoute[role]);
+              return;
+            }
+          } catch {
+            // fallback if query fails
+          }
+          router.push("/");
         },
         onError: (err) => {
           toast.error(err.message || "Something went wrong!");

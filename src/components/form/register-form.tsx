@@ -33,10 +33,10 @@ const RegisterForm = () => {
   type TPatientDefaultValues = z.infer<typeof RegisterZodSchema>;
 
   const defaultValues: TPatientDefaultValues = {
-    name: "Soheb Boss",
+    name: "",
     email: "",
-    password: "@User123",
-    confirmPassword: "@User123",
+    password: "",
+    confirmPassword: "",
     role: "STUDENT",
   };
 
