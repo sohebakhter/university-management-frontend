@@ -55,8 +55,12 @@ const SectionDetails = () => {
           toast.success("Registration Successful");
           router.push("/student/my-registration");
         },
-        onError: (err) => {
-          toast.error(err.message || "Faild to register this section");
+        onError: (err: any) => {
+          toast.error(
+            err?.data?.message ||
+              err?.message ||
+              "Faild to register this section",
+          );
         },
       },
     );

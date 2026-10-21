@@ -1,10 +1,12 @@
-import { bulkMarkAttendance, getMySections, getSectionAttendance, getSectionStudents } from "@/api";
-import { IBulkMarkAttendancePayload } from "@/types";
 import {
-  useMutation,
-  useQuery,
-  useQueryClient,
-} from "@tanstack/react-query";
+  bulkMarkAttendance,
+  getMyAttendance,
+  getMySections,
+  getSectionAttendance,
+  getSectionStudents,
+} from "@/api";
+import { IBulkMarkAttendancePayload } from "@/types";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const useGetMySections = () => {
   return useQuery({
@@ -40,5 +42,12 @@ export const useGetSectionAttendance = (sectionId: string) => {
     queryKey: ["attendance", "section", sectionId],
     queryFn: () => getSectionAttendance(sectionId),
     enabled: Boolean(sectionId),
+  });
+};
+
+export const useGetMyAttendance = () => {
+  return useQuery({
+    queryKey: ["attendance", "my"],
+    queryFn: getMyAttendance,
   });
 };

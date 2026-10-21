@@ -5,6 +5,8 @@ export const getAllExams = () => {
   return apiClient("/exam");
 };
 
+export const getExams = getAllExams;
+
 export const getExamById = (examId: string) => {
   return apiClient(`/exam/${examId}`);
 };

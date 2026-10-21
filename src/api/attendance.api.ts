@@ -16,3 +16,7 @@ export const bulkMarkAttendance = (payload: IBulkMarkAttendancePayload) => {
 export const getSectionAttendance = (sectionId: string) => {
   return apiClient(`/attendance/section/${sectionId}`);
 };
+
+export const getMyAttendance = () => {
+  return apiClient("/attendance/my");
+};

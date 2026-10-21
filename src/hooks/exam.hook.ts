@@ -6,11 +6,7 @@ import {
   updateExam,
 } from "@/api";
 import { IUpdateExamPayload } from "@/types";
-import {
-  useMutation,
-  useQuery,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const useGetAllExams = () => {
   return useQuery({
@@ -18,6 +14,8 @@ export const useGetAllExams = () => {
     queryFn: getAllExams,
   });
 };
+
+export const useGetExams = useGetAllExams;
 
 export const useGetExamById = (examId: string) => {
   return useQuery({
@@ -42,8 +40,7 @@ export const useUpdateExam = (examId: string) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (payload: IUpdateExamPayload) =>
-      updateExam(examId, payload),
+    mutationFn: (payload: IUpdateExamPayload) => updateExam(examId, payload),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["exam"] });
     },

@@ -12,6 +12,7 @@ export interface Attendance {
     id?: string;
     studentId?: string;
     sectionId?: string;
+    status?: string;
     student?: {
       id: string;
       userId?: string;
@@ -21,6 +22,22 @@ export interface Attendance {
         id: string;
         name: string;
         email: string;
+      };
+    };
+    section?: {
+      id: string;
+      name: string;
+      course?: {
+        id: string;
+        code: string;
+        title: string;
+        credit?: number;
+      };
+      semester?: {
+        id: string;
+        name: string;
+        year: number;
+        term?: string;
       };
     };
   };

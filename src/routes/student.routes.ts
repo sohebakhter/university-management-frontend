@@ -23,6 +23,33 @@ export const studentRoutes = [
     ],
   },
   {
+    title: "Examination Management",
+    items: [
+      {
+        title: "Exams",
+        url: `${prefix}/exam`,
+      },
+    ],
+  },
+  {
+    title: "Result Management",
+    items: [
+      {
+        title: "My Results",
+        url: `${prefix}/result`,
+      },
+    ],
+  },
+  {
+    title: "Attendance Management",
+    items: [
+      {
+        title: "My Attendance",
+        url: `${prefix}/attendance`,
+      },
+    ],
+  },
+  {
     title: "Payment Management",
     items: [
       {
