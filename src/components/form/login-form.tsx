@@ -15,6 +15,7 @@ import { Eye, EyeClosed } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Spinner } from "../ui/spinner";
 import GoogleLoginComponent from "../modules/google-login/GoogleLogin";
+import DemoLogin from "../modules/demo-login/DemoLogin";
 import Link from "next/link";
 import { toast } from "sonner";
 import { useLogin } from "@/hooks";
@@ -167,11 +168,15 @@ const LoginForm = () => {
           </Button>
         </FieldGroup>
       </form>
-      <FieldSeparator>Or</FieldSeparator>
+
+      {/* Demo Login Options */}
+      <DemoLogin disabled={loginPending} />
+
+      <FieldSeparator>Or continue with</FieldSeparator>
       <GoogleLoginComponent />
 
       <div className="text-center text-sm text-muted-foreground">
-        Don't have any account?
+        Don't have any account?{" "}
         <Link
           href={"/register"}
           className="font-medium underline underline-offset-4 hover:text-primary"
