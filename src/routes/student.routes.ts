@@ -8,6 +8,10 @@ export const studentRoutes = [
         url: `${prefix}`,
       },
       {
+        title: "My Profile",
+        url: `${prefix}/profile`,
+      },
+      {
         title: "Available Section",
         url: `${prefix}/section`,
       },

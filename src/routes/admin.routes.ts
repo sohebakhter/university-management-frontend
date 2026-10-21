@@ -7,6 +7,10 @@ export const adminRoutes = [
         title: "Overview",
         url: `${prefix}`,
       },
+      {
+        title: "My Profile",
+        url: `${prefix}/profile`,
+      },
     ],
   },
   {

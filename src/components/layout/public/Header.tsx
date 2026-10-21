@@ -1,11 +1,10 @@
 "use client";
 import Logo from "@/assets/svg/Logo";
 import { Button } from "@/components/ui/button";
-import { useGetMe, useLogout } from "@/hooks";
+import { useGetMe } from "@/hooks";
 import { UserRole } from "@/types";
-import { useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
-import { toast } from "sonner";
+import UserProfileDropdown from "./user-profile-dropdown";
 
 const Header = () => {
   const routes = [
@@ -21,22 +20,9 @@ const Header = () => {
   };
 
   const { data, isLoading } = useGetMe();
-  const { mutate: logout } = useLogout();
-  const queryClient = useQueryClient();
 
   const role: UserRole = !!data?.data && data?.data?.role;
 
-  const handleLogout = () => {
-    logout(undefined, {
-      onSuccess: () => {
-        toast.success("Logout Successful");
-        queryClient.removeQueries({ queryKey: ["user"] });
-      },
-      onError: (err) => {
-        toast.error(err.message || "Logout Failed");
-      },
-    });
-  };
   return (
     <header className="bg-gray-200">
       <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
@@ -59,11 +45,7 @@ const Header = () => {
               <Link href="/login">Login</Link>
             </Button>
           )}
-          {!isLoading && data && (
-            <Button onClick={handleLogout} variant="destructive">
-              Logout
-            </Button>
-          )}
+          {!isLoading && data && <UserProfileDropdown />}
         </div>
       </div>
     </header>

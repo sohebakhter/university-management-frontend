@@ -8,6 +8,7 @@ import {
   updateInstructor,
   updateInstructorStatus,
   updateStudent,
+  updateUser,
   updateUserStatus,
 } from "@/api";
 import {
@@ -133,6 +134,18 @@ export const useUpdateStudent = (studentId: string) => {
       updateStudent(studentId, payload),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["student"] });
+    },
+  });
+};
+
+// ---- Update User (profile) ----
+export const useUpdateUser = (userId: string) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (formData: FormData) => updateUser(userId, formData),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+      queryClient.invalidateQueries({ queryKey: ["user"] });
     },
   });
 };

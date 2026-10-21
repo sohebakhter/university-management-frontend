@@ -8,6 +8,7 @@ export interface User {
   email: string;
   role: UserRole;
   status: UserStatus;
+  imageUrl?: string;
   isVerified: boolean;
   isDeleted: boolean;
   createdAt: string;

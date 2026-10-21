@@ -73,3 +73,11 @@ export const updateStudent = (
     body: payload,
   });
 };
+
+// ---- Update User (with profile image) ----
+export const updateUser = (userId: string, formData: FormData) => {
+  return apiClient(`/user/${userId}`, {
+    method: "PATCH",
+    body: formData,
+  });
+};
